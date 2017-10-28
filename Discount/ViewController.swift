@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet var rateSegment: UISegmentedControl!
     @IBOutlet var rateLabel: UILabel!
     @IBOutlet var discountLabel: UILabel!
+    
+    @IBOutlet var calcButton: UIButton!
+    @IBOutlet var addButton: UIButton!
+    @IBOutlet var clearButton: UIButton!
 
     var discount: Int = 0
     var discounts: [Int] = []
@@ -25,6 +29,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        calcButton.layer.cornerRadius = 20
+        addButton.layer.cornerRadius = 20
+        clearButton.layer.cornerRadius = 20
     }
     
     override func viewDidAppear(_ animated: Bool) {
