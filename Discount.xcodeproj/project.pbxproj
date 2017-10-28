@@ -14,6 +14,10 @@
 		87A76ED71FA46034004170FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A76ED51FA46034004170FC /* LaunchScreen.storyboard */; };
 		87A76EE21FA46034004170FC /* DiscountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A76EE11FA46034004170FC /* DiscountTests.swift */; };
 		87A76EED1FA46034004170FC /* DiscountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A76EEC1FA46034004170FC /* DiscountUITests.swift */; };
+		87A76EFD1FA4754F004170FC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A76EFC1FA4754F004170FC /* ListViewController.swift */; };
+		87A76F001FA47563004170FC /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A76EFE1FA47563004170FC /* ListViewCell.swift */; };
+		87A76F011FA47563004170FC /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A76EFF1FA47563004170FC /* ListViewCell.xib */; };
+		87A76F031FA4A1C2004170FC /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A76F021FA4A1C2004170FC /* Discount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		87A76EE81FA46034004170FC /* DiscountUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscountUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A76EEC1FA46034004170FC /* DiscountUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountUITests.swift; sourceTree = "<group>"; };
 		87A76EEE1FA46034004170FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87A76EFC1FA4754F004170FC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		87A76EFE1FA47563004170FC /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		87A76EFF1FA47563004170FC /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
+		87A76F021FA4A1C2004170FC /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,10 @@
 				87A76ED31FA46034004170FC /* Assets.xcassets */,
 				87A76ED51FA46034004170FC /* LaunchScreen.storyboard */,
 				87A76ED81FA46034004170FC /* Info.plist */,
+				87A76EFC1FA4754F004170FC /* ListViewController.swift */,
+				87A76EFE1FA47563004170FC /* ListViewCell.swift */,
+				87A76EFF1FA47563004170FC /* ListViewCell.xib */,
+				87A76F021FA4A1C2004170FC /* Discount.swift */,
 			);
 			path = Discount;
 			sourceTree = "<group>";
@@ -232,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A76F011FA47563004170FC /* ListViewCell.xib in Resources */,
 				87A76ED71FA46034004170FC /* LaunchScreen.storyboard in Resources */,
 				87A76ED41FA46034004170FC /* Assets.xcassets in Resources */,
 				87A76ED21FA46034004170FC /* Main.storyboard in Resources */,
@@ -259,8 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A76F001FA47563004170FC /* ListViewCell.swift in Sources */,
 				87A76ECF1FA46034004170FC /* ViewController.swift in Sources */,
 				87A76ECD1FA46034004170FC /* AppDelegate.swift in Sources */,
+				87A76F031FA4A1C2004170FC /* Discount.swift in Sources */,
+				87A76EFD1FA4754F004170FC /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,15 +11,26 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var priceField: UITextField!
-    @IBOutlet var ratioField: UITextField!
-    @IBOutlet var zeiSegment: UISegmentedControl!
-    @IBOutlet var ratioSegment: UISegmentedControl!
-    @IBOutlet var ratioLabel: UILabel!
-    @IBOutlet var resultLabel: UILabel!
+    @IBOutlet var rateField: UITextField!
+    @IBOutlet var taxSegment: UISegmentedControl!
+    @IBOutlet var rateSegment: UISegmentedControl!
+    @IBOutlet var rateLabel: UILabel!
+    @IBOutlet var discountLabel: UILabel!
+
+    var discount: Int = 0
+    var discounts: [Int] = []
+    
+    let shared = Discount.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        discounts = shared.getDiscounts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,51 +39,70 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func discount() {
-        var price: Float = Float(priceField.text!)!
-        let ratio: Float = Float(ratioField.text!)!
+    @IBAction func didSelectCalc() {
+        guard let priceText = priceField.text else {
+            return
+        }
+
+        guard let rateText = rateField.text else {
+            return
+        }
+
+        var price: Float = Float(priceText)!
+        let rate: Float = Float(rateText)!
         
-        var zei: Float!
-        var ratioType: Float!
+        var tax: Float!
+        var rateType: Float!
         
-        switch zeiSegment.selectedSegmentIndex {
+        switch taxSegment.selectedSegmentIndex {
         case 0:
-            zei = 1.0
+            tax = 1.0
         case 1:
-            zei = 1.08
+            tax = 1.08
         default:
-            zei = 1.0
+            tax = 1.0
         }
         
-        price = price * zei
+        price = price * tax
         
-        switch ratioSegment.selectedSegmentIndex {
+        switch rateSegment.selectedSegmentIndex {
         case 0:
-            ratioType = 100
+            rateType = 100
         case 1:
-            ratioType = 10
+            rateType = 10
         default:
-            ratioType = 100
+            rateType = 100
         }
-        
-        
-        let discount: Float = 1 - (ratio / ratioType)
-    
-        let result: Float = price * discount
-        
-        resultLabel.text = String(Int(result))
+
+        let discountRate: Float = 1 - (rate / rateType)
+
+        let result: Float = price * discountRate
+
+        discount = Int(result)
+
+        discountLabel.text = String(discount)
     }
     
     @IBAction func switchType(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            ratioLabel.text = "%引"
+            rateLabel.text = "%引"
         case 1:
-            ratioLabel.text = "割引"
+            rateLabel.text = "割引"
         default:
-            ratioLabel.text = "%引"
+            rateLabel.text = "%引"
         }
     }
     
+    @IBAction func didSelectAddList() {
+        discounts.append(discount)
+        shared.saveDiscounts(discounts: discounts)
+    }
+    
+    @IBAction func didSelectClear() {
+        priceField.text = ""
+        rateField.text = ""
+        discountLabel.text = ""
+    }
 }
 
