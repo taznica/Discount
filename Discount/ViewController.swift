@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var priceField: UITextField!
     @IBOutlet var rateField: UITextField!
@@ -33,6 +33,9 @@ class ViewController: UIViewController {
         calcButton.layer.cornerRadius = 20
         addButton.layer.cornerRadius = 20
         clearButton.layer.cornerRadius = 20
+        
+        priceField.delegate = self
+        rateField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,6 +114,11 @@ class ViewController: UIViewController {
         priceField.text = ""
         rateField.text = ""
         discountLabel.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
